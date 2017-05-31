@@ -1,0 +1,18 @@
+.header{
+	height: 50px;
+	line-height: 50px;
+	background-color:rgba(0,0,0,0.8);
+	color:#fff;
+}
+.container{
+	width: 1200px;
+	margin: 0 auto;
+}
+.header .txt{
+	float: left;
+}
+.header a{
+	float: right;
+	margin-left: 20px;
+	color:#fff;
+}
