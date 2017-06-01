@@ -8,6 +8,12 @@
     <link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap-theme.css">
     <script type="text/javascript" src="./bootstrap/js/bootstrap.js"></script>
+
+    <script type="text/javascript" src="./bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="./bootstrap/bootstrapvalidator/js/bootstrapValidator.js"></script>
+    <script type="text/javascript" src="./bootstrap/bootstrapvalidator/js/language/zh_CN.js"></script>
+
+
     <link rel="stylesheet" type="text/css" href="./styles/style.css">
 </head>
 
@@ -15,17 +21,17 @@
 
 <div class="container">
     <div class="row">
-        <form class="form-horizontal">
+        <form class="form-horizontal" action="./doLogin.php" method="post" id="defaultForm">
             <div class="form-group">
                 <label  class="col-sm-2 control-label">用户名</label>
                 <div class="col-sm-10">
-                    <input type="email" class="form-control"  placeholder="请输入用户名">
+                    <input type="text" name="username" class="form-control"  placeholder="请输入用户名">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">密码</label>
                 <div class="col-sm-10">
-                    <input type="password" class="form-control"  placeholder="请输入密码">
+                    <input type="password" name="pwd" class="form-control"  placeholder="请输入密码">
                 </div>
             </div>
 
