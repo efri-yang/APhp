@@ -24,29 +24,39 @@
     <link rel="stylesheet" type="text/css" href="styles/style.css">
 </head>
 <body>
-	<div class="header">
-		<div class="container">
-			<div class="txt">
-				欢迎光临！
-				<?php
-					if(isset($userId)){
-						echo $row["username"];
-						echo '<a href="logout.php">退出</a>';	
-					}
-				?>
-			</div>
-			<?php
-				if(!isset($userId)){
-			?>
-			
-					<a href="login.php">登陆</a>
-					<a href="register.php">注册</a>
-			<?php
-				}
-			?>
-			
-		</div>
-	</div>
 	
+	<?php include("./tpl/header.php"); ?>
+	<div class="container">
+			<div class="sidebar">
+				<div class="tit-type1">公告</div>
+				<div class="hnotice-listbox">
+					<ul>
+					    <li><a href="#">公告001</a></li>
+					    <li><a href="#">公告002</a></li>
+					    <li><a href="#">公告002</a></li>
+					    <li><a href="#">公告002</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="mainbox">
+				<div class="tit-type1"><a href="#" class="more">更多</a>投票</div>
+				<div class="hvote-box">
+					<ul>
+					    <li><span>1</span><a href="#">列表001</a></li>
+					   	<li><span>2</span><a href="#">列表002</a></li>
+					   	<li><span>3</span><a href="#">列表002</a></li>
+					   	<li><span>4</span><a href="#">列表002</a></li>
+					   	<li><span>5</span><a href="#">列表001</a></li>
+					   	<li><span>6</span><a href="#">列表002</a></li>
+					   	<li><span>7</span><a href="#">列表002</a></li>
+					   	<li><span>8</span><a href="#">列表002</a></li>
+					   	<li><span>9</span><a href="#">列表002</a></li>
+					   
+					</ul>
+				</div>
+			</div>
+	</div>
+	<?php include("./tpl/footer.php"); ?>
+
 </body>
 </html>
