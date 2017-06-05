@@ -19,10 +19,16 @@
 	<meta charset="UTF-8">
 	<title>首页</title>
 	<link rel="stylesheet" type="text/css" href="./css/base.css">
-    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap-theme.css">
     <script type="text/javascript" src="../bootstrap/js/bootstrap.js"></script>
+
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../bootstrap/bootstrapvalidator/js/bootstrapValidator.js"></script>
+    <script type="text/javascript" src="../bootstrap/bootstrapvalidator/js/language/zh_CN.js"></script>
+	
+
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
@@ -49,19 +55,27 @@
 	</div>
 	<div class="container">
 		<?php
-			$pageT=$_GET["paget"];
+			$pageT=@$_GET["paget"];
 			switch ($pageT) {
 				case 'notice':
 					include("./tpl/_notice.php");
 					break;
-				
+				case 'theme':
+					include("./tpl/_theme.php");
+					break;
+				case 'message':
+					include("./tpl/_message.php");
+					break;
 				default:
-					# code...
+					include("./tpl/_notice.php");
 					break;
 			}
 		?>
 	</div>
-		
+		<div style="height: 300px;"></div>
+	<?php 
+		include("./tpl/footer.php");
+	 ?>		
 	
 </body>
 </html>

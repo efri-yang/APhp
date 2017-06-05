@@ -94,7 +94,17 @@ input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webki
 	float: right;
 }
 
-.container{
-	width: 1470px;
-	margin: 0 auto;
+
+
+.mt10{
+	margin-top: 10px;
+}
+.mt20{
+	margin-top:20px;
+}
+.mt30{
+	margin-top: 30px;
+}
+.mt40{
+	margin-top: 40px;
 }

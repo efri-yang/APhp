@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	$adminId=$_SESSION["aId"];
-	if(!isset($userId)){
+	if(!isset($adminId)){
 		echo "<script>javascript:history.back(1);</script>";
 ?>
 <?php

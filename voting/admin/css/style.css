@@ -56,55 +56,28 @@
 }
 
 
+.notice-form{
+	padding: 0 50px;
+}
 
-
-
-
-
-.sidebar{
-	width: 300px;
-	float: left;
-	overflow: hidden;
-}
-.tit-type1{
-	height: 40px;
-	line-height: 40px;
-	background:#286090;
-	color: #fff;
-	font-size: 24px;
-	padding: 0 10px;
-}
-.tit-type1 .more{
-	float: right;
-	color: #fff;
-	font-size: 12px;
-}
-.hnotice-listbox{
-	border:1px solid #ccc;
-}
-.hnotice-listbox ul li{
-	padding: 5px 10px;
-}
-.mainbox{
-	float: right;
-	width:850px;
-	min-height: 300px;
-	border:1px solid #ccc;
-}
-.hvote-box{
-	padding:15px 25px;
-}
-.hvote-box ul li{
-	margin-bottom: 10px;
-}
-.hvote-box ul li span{
-	border:1px solid #e5e5e5;
-	background: #333;
-	width: 15px;
-	height: 15px;
-	line-height: 15px;
+.notice-form .ipt-submit{
 	text-align: center;
-	margin-right: 10px;
-	color: #fff;
-	display: inline-block;
 }
+.notice-form .ipt-submit button{
+	padding-left:100px;
+	padding-right:100px;
+}
+
+.tit-type-2 .tit{
+	font-size: 16px;
+	font-weight: bold;
+
+}
+.tit-type-2 .more{
+	
+}
+
+
+
+
+
