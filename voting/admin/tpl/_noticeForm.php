@@ -1,17 +1,38 @@
+
+<?php
+    if(isset($_GET["id"])){
+        $id=$_GET["id"];
+        $sql="select * from notice where id='$id'";
+        $result=$mysqli->query($sql);
+        if($result->num_rows){
+           $row=$result->fetch_assoc();
+           $title=$row["title"];
+           $content=htmlspecialchars_decode($row["content"]);
+        }else{
+           $title="";
+           $content="";
+        }
+    }
+?>
 <script type="text/javascript" charset="utf-8" src="../UEditor/ueditor.config.js"></script>
 <script type="text/javascript" charset="utf-8" src="../UEditor/ueditor.all.min.js"> </script>
 <script type="text/javascript" charset="utf-8" src="../UEditor/lang/zh-cn/zh-cn.js"></script>
 <div class="notice-form mt30">
-	<form action="donotice.php" method="post" id="defaultForm">
+    <div class="tit-type-2">
+         <span class="tit">公告表单</span>
+         <a href="index.php?paget=notice" class="btn btn-success fr">查看列表</a>
+     </div>
+	<form action="donotice.php?id=<?php echo $id; ?>" method="post" id="defaultForm" class="donoticeform">
 		<div class="form-group">
 		    <label>标题</label>
-		    <input type="text" name="title" class="form-control"  placeholder="请输入标题">
+		    <input type="text" name="title" value="<?php echo $title; ?>" class="form-control"  placeholder="请输入标题">
 	  	</div>
 	  	<div class="form-group">
 		    <label>内容</label>
 		    <script id="UEId" type="text/plain" style="width:100%;height:300px;"></script>
-		     <input class="form-control" type="text" id="inputId" name="inputName"
-	　　　　　　　　 style="height:0px;border:0px;margin:0px;padding:0px" />
+		   <input class="form-control" type="text" id="inputId" name="inputName"
+	　　　　　　　　 style="height:0px;border:0px;margin:0px;padding:0px"  value="<?php echo $content; ?>" />
+            <input type="hidden" id="J_editorCon" name="context" value="<?php echo $content; ?>">
 	  	</div>
 
 	  	<div class="form-group ipt-submit">
@@ -26,6 +47,7 @@
 			 initialFrameHeight:300
 		}).ready(function(){
 			var editor = UE.getEditor("UEId");
+            editor.setContent("<?php echo $content;  ?>")
             /*找到UEditor的iframe*/
             var  margintop = $($('#UEId .edui-editor-toolbarbox')[0]).height();
             $($('#divId i')[0]).css('margin-top', margintop);
@@ -79,9 +101,11 @@
                     }
                 },
             }
-        }).on('success.form.bv', function (e) {          
-            // e.preventDefault();          
-            // var $form = $(e.target);
+        }).on('success.form.bv', function (e) { 
+       
+            var contxt=UE.getEditor("UEId").getContent(); 
+            $("#J_editorCon").val(contxt);        
+          
            
         });          
 

@@ -60,8 +60,15 @@
 				case 'notice':
 					include("./tpl/_notice.php");
 					break;
+				case 'addnotice':
+					include("./tpl/_noticeForm.php");
+					break;
 				case 'theme':
-					include("./tpl/_theme.php");
+					include("./theme.php");
+					break;
+				//添加投票主题
+				case 'theme-titleform':
+					include("./theme-titleform.php");
 					break;
 				case 'message':
 					include("./tpl/_message.php");

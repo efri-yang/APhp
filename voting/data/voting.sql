@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 2017-06-01 12:18:04
+-- Generation Time: 2017-06-05 12:14:38
 -- 服务器版本： 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -28,8 +28,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `id` int(10) UNSIGNED NOT NULL,
-  `adminname` varchar(30) NOT NULL DEFAULT '',
-  `password` varchar(30) NOT NULL DEFAULT '',
+  `username` varchar(30) NOT NULL DEFAULT '',
+  `password` varchar(50) NOT NULL DEFAULT '',
   `email` varchar(50) NOT NULL DEFAULT '',
   `phone` varchar(11) NOT NULL DEFAULT '',
   `sex` enum('男','女','保密','') NOT NULL DEFAULT '保密',
@@ -41,6 +41,13 @@ CREATE TABLE `admin` (
   `last_login_ip` bigint(20) NOT NULL DEFAULT '0',
   `status` int(10) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `admin`
+--
+
+INSERT INTO `admin` (`id`, `username`, `password`, `email`, `phone`, `sex`, `birthday`, `qq`, `reg_time`, `reg_ip`, `last_login_time`, `last_login_ip`, `status`) VALUES
+(1, 'admin', '96e79218965eb72c92a549dd5a330112', '1@qq.com', '13888888881', '保密', '0000-00-00', '', 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -65,8 +72,16 @@ CREATE TABLE `notice` (
   `id` int(10) UNSIGNED NOT NULL,
   `title` varchar(100) NOT NULL DEFAULT '',
   `content` text NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL
+  `admin_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `notice`
+--
+
+INSERT INTO `notice` (`id`, `title`, `content`, `admin_id`) VALUES
+(94, 'å…¬å‘Š01-æ ‡é¢˜', '&lt;p&gt;å•Šæ‰‹åŠ¨é˜€æ‰‹åŠ¨é˜€&lt;/p&gt;', 1),
+(95, 'å…¬å‘Š02-æ ‡é¢˜', '&lt;p&gt;å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-&lt;/p&gt;', 1);
 
 -- --------------------------------------------------------
 
@@ -104,7 +119,7 @@ CREATE TABLE `theme` (
   `id` int(10) UNSIGNED NOT NULL,
   `title` varchar(100) NOT NULL DEFAULT '',
   `createtime` int(10) NOT NULL DEFAULT '0',
-  `user_id` int(10) UNSIGNED NOT NULL
+  `admin_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -128,7 +143,7 @@ CREATE TABLE `titem` (
 CREATE TABLE `user` (
   `id` int(10) UNSIGNED NOT NULL,
   `username` varchar(30) NOT NULL DEFAULT '',
-  `password` varchar(30) NOT NULL DEFAULT '',
+  `password` varchar(50) NOT NULL DEFAULT '',
   `email` varchar(50) NOT NULL DEFAULT '',
   `phone` varchar(11) NOT NULL DEFAULT '',
   `sex` enum('男','女','保密') NOT NULL DEFAULT '保密',
@@ -147,12 +162,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `email`, `phone`, `sex`, `occupation`, `birthday`, `qq`, `reg_time`, `reg_ip`, `last_login_time`, `last_login_ip`, `status`) VALUES
-(7, 'yyh1', '96e79218965eb72c92a549dd5a3301', '1@qq.com', '18559160494', '男', '1', '0000-00-00', '', 1496310171, 0, 0, 0, 0),
-(8, 'yyh2', '96e79218965eb72c92a549dd5a3301', '2@qq.com', '18559160495', '保密', '12', '0000-00-00', '', 1496310578, 0, 0, 0, 0),
-(9, 'yyh2', '96e79218965eb72c92a549dd5a3301', '2@qq.com', '18559160495', '保密', '12', '0000-00-00', '', 1496310901, 0, 0, 0, 0),
-(10, 'yyh2', '96e79218965eb72c92a549dd5a3301', '2@qq.com', '18559160495', '保密', '1,2', '0000-00-00', '', 1496311136, 0, 0, 0, 0),
-(11, 'yyh2', '96e79218965eb72c92a549dd5a3301', '2@qq.com', '18559160495', '保密', '1,2', '0000-00-00', '', 1496311140, 0, 0, 0, 0),
-(12, 'yyh2', '96e79218965eb72c92a549dd5a3301', '2@qq.com', '18559160495', '保密', '1,2', '0000-00-00', '', 1496311177, 0, 0, 0, 0);
+(13, 'yyh1', '96e79218965eb72c92a549dd5a330112', '1@qq.com', '13888888881', '保密', '1', '0000-00-00', '', 1496388107, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -188,7 +198,7 @@ ALTER TABLE `message`
 --
 ALTER TABLE `notice`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `admin_id` (`admin_id`);
 
 --
 -- Indexes for table `station`
@@ -201,7 +211,7 @@ ALTER TABLE `station`
 --
 ALTER TABLE `theme`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `admin_id` (`admin_id`);
 
 --
 -- Indexes for table `titem`
@@ -232,7 +242,7 @@ ALTER TABLE `votelist`
 -- 使用表AUTO_INCREMENT `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- 使用表AUTO_INCREMENT `message`
 --
@@ -242,12 +252,12 @@ ALTER TABLE `message`
 -- 使用表AUTO_INCREMENT `notice`
 --
 ALTER TABLE `notice`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 --
 -- 使用表AUTO_INCREMENT `station`
 --
 ALTER TABLE `station`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- 使用表AUTO_INCREMENT `theme`
 --
@@ -262,7 +272,7 @@ ALTER TABLE `titem`
 -- 使用表AUTO_INCREMENT `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- 限制导出的表
 --
@@ -277,13 +287,13 @@ ALTER TABLE `message`
 -- 限制表 `notice`
 --
 ALTER TABLE `notice`
-  ADD CONSTRAINT `notice_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `notice_ibfk_1` FOREIGN KEY (`admin_id`) REFERENCES `admin` (`id`) ON UPDATE CASCADE;
 
 --
 -- 限制表 `theme`
 --
 ALTER TABLE `theme`
-  ADD CONSTRAINT `theme_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+  ADD CONSTRAINT `theme_ibfk_1` FOREIGN KEY (`admin_id`) REFERENCES `admin` (`id`);
 
 --
 -- 限制表 `titem`
