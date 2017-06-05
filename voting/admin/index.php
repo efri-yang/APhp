@@ -64,11 +64,14 @@
 					include("./tpl/_noticeForm.php");
 					break;
 				case 'theme':
-					include("./theme.php");
+					include("./_theme.php");
 					break;
 				//添加投票主题
 				case 'theme-titleform':
-					include("./theme-titleform.php");
+					include("./_theme-titleform.php");
+					break;
+				case 'theme-itemform':
+					include("./_theme-itemform.php");
 					break;
 				case 'message':
 					include("./tpl/_message.php");

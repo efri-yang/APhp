@@ -1,5 +1,13 @@
 <?php
-	
+	if(isset($_GET["id"])){
+		$id=$_GET["id"];
+		$sql="select * from theme where id='$id'";
+		$result=$mysqli->query($sql);
+		if($result->num_rows){
+			$row=$result->fetch_assoc();
+			$title=$row["title"];
+		}
+	}
 ?>
 
 <div class="theme-module">
@@ -8,11 +16,11 @@
 	</div>
 
 	
-		<form class="theme-form1 form-horizontal" id="J_themeTitleForm" action="theme-titledo.php" method="post">
+		<form class="theme-form1 form-horizontal" id="J_themeTitleForm" action="theme-titleAddChangeDo.php?id=<?php echo $id;?>" method="post">
 		  <div class="form-group">
 		    <label  class="col-sm-1 control-label">标题</label>
 		    <div class="col-sm-11">
-		      <input type="text" name="title" class="form-control" placeholder="标题">
+		      <input type="text" name="title" class="form-control" placeholder="标题" value="<?php echo isset($title)? $title :'';?>">
 		    </div>
 		  </div>
 		  <div class="form-group">
