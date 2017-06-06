@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2017-06-05 12:14:38
--- 服务器版本： 10.1.21-MariaDB
--- PHP Version: 5.6.30
+-- Generation Time: 2017-06-06 18:16:12
+-- 服务器版本： 10.1.19-MariaDB
+-- PHP Version: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -80,8 +80,8 @@ CREATE TABLE `notice` (
 --
 
 INSERT INTO `notice` (`id`, `title`, `content`, `admin_id`) VALUES
-(94, 'å…¬å‘Š01-æ ‡é¢˜', '&lt;p&gt;å•Šæ‰‹åŠ¨é˜€æ‰‹åŠ¨é˜€&lt;/p&gt;', 1),
-(95, 'å…¬å‘Š02-æ ‡é¢˜', '&lt;p&gt;å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-å…¬å‘Š02-&lt;/p&gt;', 1);
+(94, '公告标题—02', '&lt;p&gt;公告标题—02内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容&lt;/p&gt;', 1),
+(95, '公告标题—01', '&lt;p&gt;公告标题—01内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容&lt;/p&gt;', 1);
 
 -- --------------------------------------------------------
 
@@ -122,6 +122,14 @@ CREATE TABLE `theme` (
   `admin_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 转存表中的数据 `theme`
+--
+
+INSERT INTO `theme` (`id`, `title`, `createtime`, `admin_id`) VALUES
+(1, '2015赛季NBA的MVP是？', 1496664944, 1),
+(5, '你最喜欢的球类运动是？', 1496665053, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -133,6 +141,17 @@ CREATE TABLE `titem` (
   `title` varchar(100) NOT NULL DEFAULT '0',
   `tid` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `titem`
+--
+
+INSERT INTO `titem` (`id`, `title`, `tid`) VALUES
+(1, '篮球', 5),
+(2, '足球', 5),
+(4, '库里', 1),
+(5, '詹姆斯', 1),
+(6, '杜兰特', 1);
 
 -- --------------------------------------------------------
 
@@ -252,7 +271,7 @@ ALTER TABLE `message`
 -- 使用表AUTO_INCREMENT `notice`
 --
 ALTER TABLE `notice`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 --
 -- 使用表AUTO_INCREMENT `station`
 --
@@ -262,12 +281,12 @@ ALTER TABLE `station`
 -- 使用表AUTO_INCREMENT `theme`
 --
 ALTER TABLE `theme`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- 使用表AUTO_INCREMENT `titem`
 --
 ALTER TABLE `titem`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- 使用表AUTO_INCREMENT `user`
 --
@@ -299,7 +318,7 @@ ALTER TABLE `theme`
 -- 限制表 `titem`
 --
 ALTER TABLE `titem`
-  ADD CONSTRAINT `titem_ibfk_1` FOREIGN KEY (`tid`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `titem_ibfk_1` FOREIGN KEY (`tid`) REFERENCES `theme` (`id`);
 
 --
 -- 限制表 `votelist`

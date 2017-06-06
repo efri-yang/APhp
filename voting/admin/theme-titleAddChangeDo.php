@@ -34,14 +34,17 @@ include("../libs/mysql.func.php");
 <?php
     }else{
         $title = $_POST["title"];
-        if(isset($_GET["id"])){
+        if(isset($_GET["id"]) && !empty($_GET["id"])){
+            echo $title;
             $id=$_GET["id"];
             $sql = "update theme set title='$title' where id='$id' and admin_id='$adminId'";
         }else{
+
             date_default_timezone_set('PRC');
             $createtime = time();
             $sql = "insert into theme(title,createtime,admin_id) values('$title','$createtime','$adminId')";
         }
+        echo $title;
         $result = $mysqli->query($sql);
         if ($mysqli->affected_rows) {
 ?>
@@ -62,9 +65,9 @@ include("../libs/mysql.func.php");
                 <div class="row">
                     <h1 style="text-align: center">插入失败，请从新操作！</h1>
                     <script>
-                        setTimeout(function () {
-                            history.back(-1);
-                        }, 1500)
+                        // setTimeout(function () {
+                        //     history.back(-1);
+                        // }, 1500)
                     </script>
                 </div>
             </div>   

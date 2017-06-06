@@ -27,6 +27,7 @@
     <script type="text/javascript" src="../bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript" src="../bootstrap/bootstrapvalidator/js/bootstrapValidator.js"></script>
     <script type="text/javascript" src="../bootstrap/bootstrapvalidator/js/language/zh_CN.js"></script>
+    <script type="text/javascript" src="../layer/layer.js"></script>
 	
 
     <link rel="stylesheet" type="text/css" href="css/style.css">

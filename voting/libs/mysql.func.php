@@ -4,5 +4,5 @@
 		printf("Connect failed: %s\n", $mysqli->connect_error);
     	exit();
 	}
-	$mysqli->query("set name utf8");
+	$mysqli->query("set names 'utf8'");
 ?>

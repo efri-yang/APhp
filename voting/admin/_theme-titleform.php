@@ -16,7 +16,7 @@
 	</div>
 
 	
-		<form class="theme-form1 form-horizontal" id="J_themeTitleForm" action="theme-titleAddChangeDo.php?id=<?php echo $id;?>" method="post">
+		<form class="theme-form1 form-horizontal" id="J_themeTitleForm" action="theme-titleAddChangeDo.php?id=<?php echo isset($id) ? $id :'';?>" method="post">
 		  <div class="form-group">
 		    <label  class="col-sm-1 control-label">标题</label>
 		    <div class="col-sm-11">
