@@ -33,36 +33,18 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-	<div class="header">
-		<div class="container">
-			<div class="txt">
-				欢迎光临！
-				<?php
-					if(isset($adminId)){
-						echo $row["username"];
-						echo '<a href="logout.php">退出</a>';	
-					}
-				?>
-			</div>
-		</div>
-	</div>
 
-	<div class="container">
-		<ul class="nav-box clearfix">
-			<li class="active"><a href="index.php?paget=notice">公告管理</a></li>
-			<li><a href="index.php?paget=theme">投票主题</a></li>
-			<li><a href="index.php?paget=message">留言管理</a></li>
-		</ul>
-	</div>
+<?php include("./tpl/header.php"); ?>
+<?php include("./tpl/nav.php") ?>
 	<div class="container">
 		<?php
 			$pageT=@$_GET["paget"];
 			switch ($pageT) {
 				case 'notice':
-					include("./tpl/_notice.php");
+					include("./_notice.php");
 					break;
 				case 'addnotice':
-					include("./tpl/_noticeForm.php");
+					include("./_noticeForm.php");
 					break;
 				case 'theme':
 					include("./_theme.php");
@@ -78,7 +60,7 @@
 					include("./_message.php");
 					break;
 				default:
-					include("./tpl/_notice.php");
+					include("./_notice.php");
 					break;
 			}
 		?>

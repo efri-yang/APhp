@@ -1,3 +1,14 @@
+<?php
+
+function php_self(){
+
+    $php_self=substr($_SERVER['PHP_SELF'],strrpos($_SERVER['PHP_SELF'],'/')+1);
+
+    return $php_self;
+
+}
+
+?>
 <div class="header">
 		<div class="container">
 			<div class="txt">
@@ -24,8 +35,8 @@
 
 	<div class="container">
 		<ul class="nav-box clearfix">
-			<li class="active"><a href="index.php">首页</a></li>
-			<li><a href="votelist.php">投票主题</a></li>
-			<li><a href="messageform.php">留言板</a></li>
+			<li <?php echo (php_self()=="index.php") ? "class='active'" :"";?>><a href="index.php">首页</a></li>
+			<li <?php echo (php_self()=="votelist.php") ? "class='active'" :"";?>><a href="votelist.php">投票主题</a></li>
+			<li <?php echo (php_self()=="messageform.php") ? "class='active'" :"";?>><a href="messageform.php">留言板</a></li>
 		</ul>
 	</div>

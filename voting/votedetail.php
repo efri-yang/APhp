@@ -25,19 +25,7 @@
 	$resultUser=$mysqli->query($sqlUser);
 	if($resultUser->num_rows){
 		$isVoted=true;
-	}
-
-
-
-
-
-
-
-
-
-	
-
-	
+	}	
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -92,8 +80,12 @@
 								?>
 							</div>
 							</form>
+
+
 						</div>
-						
+						<div class="row" style="text-align: center;margin-top:50px;">
+							 <a href="#" class="btn btn-success btn-lg">查看投票结果</a>
+						</div>
 					</div>
 				<?php
 					}else{

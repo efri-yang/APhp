@@ -5,7 +5,9 @@
 	if(!isset($adminId)){
 		header("Location:adminlogin.php");
 	}
-	$title=$_POST["title"];
+	$title=addslashes($_POST["title"]);
+
+	// $content=htmlentities(addslashes($_POST["context"]));
 	$content=htmlentities($_POST["context"]);
 	if(empty($_GET["id"])){
 		$sql="insert into notice(title,content,admin_id) values('$title','$content','$adminId')";
@@ -37,7 +39,7 @@
 	?>
 			<h1>插入失败！</h1>
 			<script>
-				window.history.go(-1);
+				// window.history.go(-1);
 			</script>
 	<?php
 		}

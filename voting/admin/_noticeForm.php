@@ -1,16 +1,16 @@
 
 <?php
+    $title="";
+    $content="";
+    $id="";
     if(isset($_GET["id"])){
         $id=$_GET["id"];
         $sql="select * from notice where id='$id'";
         $result=$mysqli->query($sql);
         if($result->num_rows){
            $row=$result->fetch_assoc();
-           $title=$row["title"];
+           $title=stripcslashes($row["title"]);
            $content=html_entity_decode($row["content"]);
-        }else{
-           $title="";
-           $content="";
         }
     }
 ?>
@@ -22,10 +22,10 @@
          <span class="tit">公告表单</span>
          <a href="index.php?paget=notice" class="btn btn-success fr">查看列表</a>
      </div>
-	<form action="donotice.php?id=<?php echo $id; ?>" method="post" id="defaultForm" class="donoticeform">
+	<form action="noticeDo.php?id=<?php echo $id; ?>" method="post" id="defaultForm" class="donoticeform">
 		<div class="form-group">
 		    <label>标题</label>
-		    <input type="text" name="title" value="<?php echo $title; ?>" class="form-control"  placeholder="请输入标题">
+		    <input type="text" name="title" value='<?php echo $title; ?>'  class="form-control"  placeholder="请输入标题">
 	  	</div>
 	  	<div class="form-group">
 		    <label>内容</label>
