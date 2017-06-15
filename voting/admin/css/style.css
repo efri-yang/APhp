@@ -167,6 +167,38 @@
 }
 
 
+.message-box{
+	border:1px solid #333;
+	padding: 10px;
+}
+
+.message-box ul li{
+	position:relative;
+	padding:10px 30px;
+	border-bottom: 1px dashed #666;
+}
+.message-box ul li .num{
+	position:absolute;
+	left:0;
+	top:50%;
+	height: 28px;
+	line-height: 28px;
+	margin-top: -14px;
+
+}
+.message-box ul li .txt{
+	height: 28px;
+	line-height: 28px;
+	
+}
+.message-box ul li .handle{
+	position: absolute;
+	right:0;
+	top:50%;
+	height: 28px;
+	line-height: 28px;
+	margin-top: -14px;
+}
 
 
 

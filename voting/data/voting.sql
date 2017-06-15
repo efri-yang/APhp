@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 2017-06-06 18:16:12
--- 服务器版本： 10.1.19-MariaDB
--- PHP Version: 5.6.28
+-- Generation Time: 2017-06-15 12:34:02
+-- 服务器版本： 10.1.21-MariaDB
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -57,10 +57,17 @@ INSERT INTO `admin` (`id`, `username`, `password`, `email`, `phone`, `sex`, `bir
 
 CREATE TABLE `message` (
   `id` int(10) UNSIGNED NOT NULL,
-  `title` varchar(100) NOT NULL DEFAULT '',
   `content` text NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `message`
+--
+
+INSERT INTO `message` (`id`, `content`, `user_id`) VALUES
+(4, '留言001\r\n001001010101', 13),
+(6, '水电费水电费水电费', 13);
 
 -- --------------------------------------------------------
 
@@ -72,16 +79,21 @@ CREATE TABLE `notice` (
   `id` int(10) UNSIGNED NOT NULL,
   `title` varchar(100) NOT NULL DEFAULT '',
   `content` text NOT NULL,
-  `admin_id` int(10) UNSIGNED NOT NULL
+  `admin_id` int(10) UNSIGNED NOT NULL,
+  `wtime` int(10) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `notice`
 --
 
-INSERT INTO `notice` (`id`, `title`, `content`, `admin_id`) VALUES
-(94, '公告标题—02', '&lt;p&gt;公告标题—02内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容&lt;/p&gt;', 1),
-(95, '公告标题—01', '&lt;p&gt;公告标题—01内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容&lt;/p&gt;', 1);
+INSERT INTO `notice` (`id`, `title`, `content`, `admin_id`, `wtime`) VALUES
+(94, '公告01-标题', '&lt;p&gt;公告标题&mdash;01内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容&lt;/p&gt;', 1, 1497506580),
+(95, '公告02-标题', '&lt;p&gt;公告标题&mdash;02内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容&lt;/p&gt;', 1, 1497506592),
+(96, '公告03-标题', '&lt;p&gt;公告03-内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容&lt;/p&gt;', 1, 0),
+(97, '公告04-标题', '&lt;p&gt;公告04-内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容&lt;/p&gt;', 1, 0),
+(98, '公告05-标题', '&lt;p&gt;公告05-内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容&lt;/p&gt;', 1, 0),
+(99, '公告06-标题', '&lt;p&gt;公告06-内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容&lt;/p&gt;', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -128,7 +140,7 @@ CREATE TABLE `theme` (
 
 INSERT INTO `theme` (`id`, `title`, `createtime`, `admin_id`) VALUES
 (1, '2015赛季NBA的MVP是？', 1496664944, 1),
-(5, '你最喜欢的球类运动是？', 1496665053, 1);
+(5, '你最喜欢的球类运动是?', 1496665053, 1);
 
 -- --------------------------------------------------------
 
@@ -148,10 +160,12 @@ CREATE TABLE `titem` (
 
 INSERT INTO `titem` (`id`, `title`, `tid`) VALUES
 (1, '篮球', 5),
-(2, '足球', 5),
 (4, '库里', 1),
 (5, '詹姆斯', 1),
-(6, '杜兰特', 1);
+(6, '杜兰特', 1),
+(7, '足球', 5),
+(8, '排球', 5),
+(12, '台球', 5);
 
 -- --------------------------------------------------------
 
@@ -190,10 +204,19 @@ INSERT INTO `user` (`id`, `username`, `password`, `email`, `phone`, `sex`, `occu
 --
 
 CREATE TABLE `votelist` (
+  `id` int(10) UNSIGNED NOT NULL,
   `tid` int(10) UNSIGNED NOT NULL,
   `iid` int(10) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `votelist`
+--
+
+INSERT INTO `votelist` (`id`, `tid`, `iid`, `user_id`) VALUES
+(11, 1, 5, 13),
+(12, 5, 1, 13);
 
 --
 -- Indexes for dumped tables
@@ -249,6 +272,7 @@ ALTER TABLE `user`
 -- Indexes for table `votelist`
 --
 ALTER TABLE `votelist`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `tid` (`tid`),
   ADD KEY `iid` (`iid`),
   ADD KEY `user_id` (`user_id`);
@@ -266,12 +290,12 @@ ALTER TABLE `admin`
 -- 使用表AUTO_INCREMENT `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- 使用表AUTO_INCREMENT `notice`
 --
 ALTER TABLE `notice`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 --
 -- 使用表AUTO_INCREMENT `station`
 --
@@ -281,17 +305,22 @@ ALTER TABLE `station`
 -- 使用表AUTO_INCREMENT `theme`
 --
 ALTER TABLE `theme`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- 使用表AUTO_INCREMENT `titem`
 --
 ALTER TABLE `titem`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- 使用表AUTO_INCREMENT `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+--
+-- 使用表AUTO_INCREMENT `votelist`
+--
+ALTER TABLE `votelist`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- 限制导出的表
 --

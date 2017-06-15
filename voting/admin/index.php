@@ -75,7 +75,7 @@
 					include("./_theme-itemform.php");
 					break;
 				case 'message':
-					include("./tpl/_message.php");
+					include("./_message.php");
 					break;
 				default:
 					include("./tpl/_notice.php");

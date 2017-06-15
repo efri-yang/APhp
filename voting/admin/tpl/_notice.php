@@ -17,14 +17,14 @@
 					while ($row=$result->fetch_assoc()) {
 						$num++;
 				?>
-					 <li>
-					    	<span class="num"><?php echo $num; ?></span>
-					    	<a href="#"><?php echo $row["title"]; ?></a>
-							<span class="hand">
-								<a href="index.php?paget=addnotice&id=<?php echo $row['id']; ?>">修改</a>
-								<a href="notice_del.php?id=<?php echo $row['id']; ?>">删除</a>
-							</span>
-					    </li>
+					<li>
+				    	<span class="num"><?php echo $num; ?></span>
+				    	<a href="#"><?php echo $row["title"]; ?></a>
+						<span class="hand">
+							<a href="index.php?paget=addnotice&id=<?php echo $row['id']; ?>">修改</a>
+							<a href="notice_del.php?id=<?php echo $row['id']; ?>">删除</a>
+						</span>
+				    </li>
 				<?php
 					}
 				?>

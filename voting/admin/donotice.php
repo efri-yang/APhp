@@ -6,7 +6,7 @@
 		header("Location:adminlogin.php");
 	}
 	$title=$_POST["title"];
-	$content=htmlspecialchars($_POST["context"]);
+	$content=htmlentities($_POST["context"]);
 	if(empty($_GET["id"])){
 		$sql="insert into notice(title,content,admin_id) values('$title','$content','$adminId')";
 	}else{

@@ -7,7 +7,7 @@
         if($result->num_rows){
            $row=$result->fetch_assoc();
            $title=$row["title"];
-           $content=htmlspecialchars_decode($row["content"]);
+           $content=html_entity_decode($row["content"]);
         }else{
            $title="";
            $content="";

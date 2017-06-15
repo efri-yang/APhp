@@ -16,7 +16,7 @@
 	</div>
 
 	
-		<form class="theme-form1 form-horizontal" id="J_theme-form1" method="post" action="./theme-itemdo.php">
+		<form class="theme-form1 form-horizontal" id="J_theme-form1" method="post" action="./theme-itemdo.php?id=<?php echo $id;?>">
 			<div class="para-item">
 		<?php
 		 	$sql2="select * from titem where tid='$id'";
@@ -29,8 +29,8 @@
 					<div class="form-group">
 					    <label  class="col-sm-1 control-label">选项<?php echo $num;?></label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" name="options[]"  placeholder="请输入选项内容" value="<?php echo $row['title'];?>" />
-					      <input type="hidden" name="ids[]" value="<?php echo $row['id']; ?>">
+					      <input type="text" class="form-control"   placeholder="请输入选项内容" disabled="disabled" value="<?php echo $row['title'];?>" />
+					      <input type="hidden" value="<?php echo $row['id']; ?>">
 					    </div>
 					    <div class="col-sm-1"><button type="button" class="btn btn-danger btn-item-del" data-url="./theme-itemDelDo.php?id=<?php echo $row['id'];?>">删除</button></div>
 					</div>

@@ -30,29 +30,70 @@
 			<div class="sidebar">
 				<div class="tit-type1">公告</div>
 				<div class="hnotice-listbox">
-					<ul>
-					    <li><a href="#">公告001</a></li>
-					    <li><a href="#">公告002</a></li>
-					    <li><a href="#">公告002</a></li>
-					    <li><a href="#">公告002</a></li>
-					</ul>
+					<?php
+						$sqlnotice="select * from notice order by id desc LIMIT 0,5";
+						$resultn=$mysqli->query($sqlnotice);
+						if($resultn->num_rows){
+
+				    ?>
+				    		<ul>
+				    			
+				    			
+				    			<?php
+					
+					while ($rownotice=$resultn->fetch_assoc()) {
+
+						
+			?>
+			
+						<li>
+						   <a href="noticeDetail.php?id=<?php echo $rownotice['id'] ?>"><?php echo $rownotice["title"]; ?></a>
+					    </li>
+			<?php
+			}
+			?>
+					    
+							</ul>
+				    <?php
+						}else{
+					?>
+							<div class="nodata-box">暂无数据！</div>
+					<?php
+						}
+
+					?>
+					
 				</div>
 			</div>
 			<div class="mainbox">
 				<div class="tit-type1"><a href="#" class="more">更多</a>投票</div>
 				<div class="hvote-box">
-					<ul>
-					    <li><span>1</span><a href="#">列表001</a></li>
-					   	<li><span>2</span><a href="#">列表002</a></li>
-					   	<li><span>3</span><a href="#">列表002</a></li>
-					   	<li><span>4</span><a href="#">列表002</a></li>
-					   	<li><span>5</span><a href="#">列表001</a></li>
-					   	<li><span>6</span><a href="#">列表002</a></li>
-					   	<li><span>7</span><a href="#">列表002</a></li>
-					   	<li><span>8</span><a href="#">列表002</a></li>
-					   	<li><span>9</span><a href="#">列表002</a></li>
-					   
-					</ul>
+					<?php
+						$sqltp="select * from theme order by id desc LIMIT 0,10";
+						$resulttp=$mysqli->query($sqltp);
+						if($resulttp->num_rows){
+				    ?>
+				    		<ul>
+								<?php
+								    $num=0;
+									while ($rowtp=$resulttp->fetch_assoc()) {
+										$num++;
+								?>
+										<li><span><?php echo $num; ?></span><a href="votedetail.php?id=<?php echo $rowtp['id'];?>"><?php echo $rowtp["title"]; ?></a></li>
+								<?php
+									}
+
+								?>
+				    		</ul>
+						
+				    <?php
+				    }else{
+					?>
+						<div class="no-databox">暂无投票！</div>
+				    <?php	
+				    }
+				    ?>
+					
 				</div>
 			</div>
 	</div>
