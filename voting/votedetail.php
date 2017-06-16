@@ -84,7 +84,7 @@
 
 						</div>
 						<div class="row" style="text-align: center;margin-top:50px;">
-							 <a href="#" class="btn btn-success btn-lg">查看投票结果</a>
+							 <a href="voteResult.php?id=<?php echo $id; ?>" class="btn btn-success btn-lg">查看投票结果</a>
 						</div>
 					</div>
 				<?php
